@@ -1,3 +1,5 @@
+require_relative './states'
+
 class Contact
   Full_Phone_Length = 12    
     
@@ -26,6 +28,12 @@ class Contact
     "#{address_1}, #{city}, #{state} #{postal_code}"  
   end
   
+  def address_long
+    states = self.class.get_states_info
+    long_state = states[state] || state
+    "#{address_1}, #{city}, #{long_state} #{postal_code}"    
+  end
+  
   def telephone_number
     if telephone_number_raw.length >= Full_Phone_Length &&
        telephone_number_raw[0] == '+'
@@ -45,9 +53,23 @@ class Contact
     "First Name: #{first_name}\nLast Name: #{last_name}\n" +
     "Address: #{address}\nTelephone Number: #{telephone_number}"
   end
+  
+  def get_information(options = {})
+    if options[:whole_state]
+      "First Name: #{first_name}\nLast Name: #{last_name}\n" +
+      "Address: #{address_long}\nTelephone Number: #{telephone_number}"
+    else
+      to_s  
+    end
+  end
+  
+  private
+    
+    def self.get_states_info
+      @@states_data ||= get_states_data 
+    end
 end
 
-#person = Contact.new("john smith", "123 Main St.", "Los Angeles", "CA", "90213", "+15424478569")
-#puts person.telephone_number
+
 
 
