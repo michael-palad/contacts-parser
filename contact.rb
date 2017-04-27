@@ -42,7 +42,8 @@ class Contact
   # should have used squiggly heredoc "<<~" here
   # but it is not supported on Ruby versions older than 2.3
   def to_s
-    "First Name: #{first_name}\nLast Name: #{last_name}\nAddress: #{address}"
+    "First Name: #{first_name}\nLast Name: #{last_name}\n" +
+    "Address: #{address}\nTelephone Number: #{telephone_number}"
   end
 end
 
