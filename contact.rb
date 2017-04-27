@@ -46,7 +46,7 @@ class Contact
   end
 end
 
-person = Contact.new("john smith", "123 Main St.", "Los Angeles", "CA", "90213", "+15424478569")
-puts person.telephone_number
+#person = Contact.new("john smith", "123 Main St.", "Los Angeles", "CA", "90213", "+15424478569")
+#puts person.telephone_number
 
 
