@@ -2,6 +2,8 @@ name|telephone_number|address_1|city|state|postal_code
 john smith|+15424478569|123 Main St.|Los Angeles|CA|90213
 Not sure||030 Unknown St.|Where City
 Eric Hawk|+15424378222|201 Happy Ave.|Berry|AL|35546
+
 clark kent|+15424478569|123 Main St.|Los Angeles|CA|90213
+
 bruce wayne|+16544484153|Wayne Manor|Gotham City|XX|84542
 
