@@ -13,11 +13,21 @@ def display_contacts(contacts_array)
   end
 end
 
-File.open(Default_Contacts_Filename, 'r') do |f|
-  contacts_headers = Parser::parse_contacts_headers(f.readline)
-  contacts_data = Parser::parse_contacts_data(f.readlines)
+if ARGV[0] && ARGV[0].length >= 1
+  filename = ARGV[0]    
+else
+  filename = Default_Contacts_Filename   
+end
+
+begin
+  File.open(filename, 'r') do |f|
+    contacts_headers = Parser::parse_contacts_headers(f.readline)
+    contacts_data = Parser::parse_contacts_data(f.readlines)
   
-  contacts_array = Parser::create_contacts_array(contacts_headers, contacts_data)
-  display_contacts(contacts_array)
+    contacts_array = Parser::create_contacts_array(contacts_headers, contacts_data)
+    display_contacts(contacts_array)
+  end
+rescue Exception => e
+  puts e.message
 end
 
