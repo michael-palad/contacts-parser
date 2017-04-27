@@ -28,6 +28,6 @@ begin
     display_contacts(contacts_array)
   end
 rescue Exception => e
-  puts e.message
+  puts "An error occured: #{e.message}"
 end
 
