@@ -1,6 +1,5 @@
 require_relative './contact.rb'
 
-Contacts_Filename = 'contacts.txt'
 Field_Not_Found = -1
 
 module Parser 
@@ -11,7 +10,7 @@ module Parser
   def self.parse_contacts_data(lines)
     data = []
     lines.each do |contact_line|
-      data << contact_line.strip.split('|')    
+      data << contact_line.strip.split('|') unless contact_line.strip.empty? 
     end
   
     data

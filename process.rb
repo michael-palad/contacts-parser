@@ -1,5 +1,8 @@
+#!/usr/bin/env ruby
+
 require_relative './parsers.rb'
 
+Default_Contacts_Filename = 'contacts.txt'
 Separator_String = "---------"
 
 def display_contacts(contacts_array)
@@ -10,7 +13,7 @@ def display_contacts(contacts_array)
   end
 end
 
-File.open(Contacts_Filename, 'r') do |f|
+File.open(Default_Contacts_Filename, 'r') do |f|
   contacts_headers = Parser::parse_contacts_headers(f.readline)
   contacts_data = Parser::parse_contacts_data(f.readlines)
   
