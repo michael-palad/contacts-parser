@@ -27,7 +27,7 @@ begin
     contacts_array = Parser::create_contacts_array(contacts_headers, contacts_data)
     display_contacts(contacts_array)
   end
-rescue Exception => e
+rescue StandardError => e
   puts "An error occured: #{e.message}"
 end
 
